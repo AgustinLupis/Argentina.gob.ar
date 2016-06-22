@@ -43,7 +43,7 @@
 	<classpathentry kind="lib" path="/home/nicolas/Descargas/selenium-2.53.0/libs/netty-3.5.7.Final.jar"/>
 	<classpathentry kind="lib" path="/home/nicolas/Descargas/selenium-2.53.0/libs/phantomjsdriver-1.2.1.jar"/>
 	<classpathentry kind="lib" path="/home/nicolas/Descargas/selenium-2.53.0/libs/testng-6.9.9.jar"/>
-	<classpathentry kind="lib" path="/home/nicolas/Descargas/selenium-2.53.0/selenium-java-2.53.0.jar"/>
+	<classpathentry kind="lib" path="/home/nicolas/Descargas/selenium-2.53.0/selenium-java-2.53.0.jar" sourcepath=""/>
 	<classpathentry kind="lib" path="/home/nicolas/Descargas/selenium-2.53.0/selenium-java-2.53.0-srcs.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

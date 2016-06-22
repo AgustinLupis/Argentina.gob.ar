@@ -18,7 +18,7 @@ public class TC_Header {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://www.argentina.gob.ar/";
+    baseUrl = "https://www.argentina.gob.ar/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -26,35 +26,65 @@ public class TC_Header {
   public void testTCHeader() throws Exception {
     driver.get(baseUrl + "/");
     try {
-      assertEquals("Áreas", driver.findElement(By.linkText("Áreas")).getText());
+      assertTrue(isElementPresent(By.linkText("Servicios")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("País", driver.findElement(By.linkText("País")).getText());
+      assertTrue(isElementPresent(By.linkText("Áreas")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("Ayuda", driver.findElement(By.linkText("Ayuda")).getText());
+      assertTrue(isElementPresent(By.linkText("País")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.linkText("Ayuda")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.cssSelector("span.glyphicon.glyphicon-search")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     driver.findElement(By.linkText("Servicios")).click();
-    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
-    driver.findElement(By.linkText("Áreas")).click();
-    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
-    driver.findElement(By.linkText("País")).click();
-    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
-    driver.findElement(By.linkText("Ayuda")).click();
-    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
-    driver.findElement(By.cssSelector("span.glyphicon.glyphicon-search")).click();
-    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
     try {
-      assertEquals("Servicios", driver.findElement(By.linkText("Servicios")).getText());
+      assertEquals("Servicios", driver.getTitle());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
+    driver.findElement(By.linkText("Áreas")).click();
+    try {
+      assertEquals("Áreas de Gobierno | Argentina.gob.ar", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
+    driver.findElement(By.linkText("País")).click();
+    try {
+      assertEquals("El País | Argentina.gob.ar", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
+    driver.findElement(By.linkText("Ayuda")).click();
+    try {
+      assertEquals("Ayuda | Argentina.gob.ar", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
+    driver.findElement(By.cssSelector("span.glyphicon.glyphicon-search")).click();
+    try {
+      assertEquals("", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.cssSelector("img[alt=\"Inicio\"]")).click();
   }
 
   @After
