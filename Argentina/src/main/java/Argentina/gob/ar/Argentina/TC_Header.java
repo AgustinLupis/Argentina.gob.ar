@@ -23,7 +23,7 @@ public class TC_Header {
   }
 
   @Test
-  public void testTCHeader() throws Exception {
+  public void testTC_Header() throws Exception {
     driver.get(baseUrl + "/");
     try {
       assertTrue(isElementPresent(By.linkText("Servicios")));
