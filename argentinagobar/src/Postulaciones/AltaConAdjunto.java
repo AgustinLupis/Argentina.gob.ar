@@ -13,6 +13,9 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.support.ui.Select;
 
+
+
+
 public class AltaConAdjunto {
   private WebDriver driver;
   private String baseUrl;
@@ -21,7 +24,7 @@ public class AltaConAdjunto {
 
   @Before
   public void setUp() throws Exception {
-	  File pathToBinary = new File("/opt/firefox46/firefox");
+	  File pathToBinary = new File("/opt/firefox/firefox");
 	  FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
 	  FirefoxProfile firefoxProfile = new FirefoxProfile();       
 	  driver = new FirefoxDriver(ffBinary,firefoxProfile);
@@ -69,8 +72,10 @@ public class AltaConAdjunto {
     LocalFileDetector detector = new LocalFileDetector();
     File file = detector.getLocalFile("/home/aluna/Desktop/archivos para adjuntar/pdf.pdf");
     driver.findElement(By.name("files[cv]")).sendKeys(file.getAbsolutePath());
-        driver.findElement(By.id("edit-terminos-y-condiciones")).click();
+    driver.findElement(By.id("edit-terminos-y-condiciones")).click();
     driver.findElement(By.id("edit-submit-button")).click();
+    String actText = driver.findElement(By.xpath("//main/div/div")).getText();
+   
   }
 
   @After

@@ -1,12 +1,15 @@
 package CasaDelFuturo;
 
 import java.util.regex.Pattern;
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.Select;
 
 public class CaminoFelizCasaDelFuturo {
@@ -17,11 +20,14 @@ public class CaminoFelizCasaDelFuturo {
 
   @Before
   public void setUp() throws Exception {
-    driver = new FirefoxDriver();
+	  File pathToBinary = new File("/opt/firefox/firefox");
+	  FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
+	  FirefoxProfile firefoxProfile = new FirefoxProfile();       
+	  driver = new FirefoxDriver(ffBinary,firefoxProfile);
+	//driver = new FirefoxDriver();
     baseUrl = "http://qa-back.argentina.gob.ar/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
-
   @Test
   public void testCaminoFelizCasaDelFuturo() throws Exception {
     driver.get(baseUrl + "cuestionario-casa-del-futuro");

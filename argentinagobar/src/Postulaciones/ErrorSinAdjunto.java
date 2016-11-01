@@ -2,7 +2,9 @@ package Postulaciones;
 
 import java.util.regex.Pattern;
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -21,7 +23,7 @@ public class ErrorSinAdjunto {
 
   @Before
   public void setUp() throws Exception {
-	  File pathToBinary = new File("/opt/firefox46/firefox");
+	  File pathToBinary = new File("/opt/firefox/firefox");
 	  FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
 	  FirefoxProfile firefoxProfile = new FirefoxProfile();       
 	  driver = new FirefoxDriver(ffBinary,firefoxProfile);
@@ -32,6 +34,9 @@ public class ErrorSinAdjunto {
 
   @Test
   public void testAltaSinAdjunto() throws Exception {
+	  /* maximizar navegador*/
+	driver.manage().window().maximize();
+		  /* maximizar navegador*/
     driver.get(baseUrl + "postulaciones");
     driver.findElement(By.id("edit-nombres")).clear();
     driver.findElement(By.id("edit-nombres")).sendKeys("ariana");
@@ -68,6 +73,18 @@ public class ErrorSinAdjunto {
     driver.findElement(By.id("edit-comentario")).sendKeys("asd");
     driver.findElement(By.id("edit-terminos-y-condiciones")).click();
     driver.findElement(By.id("edit-submit-button")).click();
+//toma screenshot en formato png
+    File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    try {
+     // ubicacion del screenshot
+    FileUtils.copyFile(src, new File("/home/aluna/Desktop/screenshot/errorsinadjunto.png"));
+    }
+     
+    catch (IOException e)
+     {
+      System.out.println(e.getMessage());
+     
+     }
   }
 
   @After
