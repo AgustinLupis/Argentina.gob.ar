@@ -75,11 +75,11 @@ public class AltaConAdjunto {
     driver.findElement(By.name("files[cv]")).sendKeys(file.getAbsolutePath());
     driver.findElement(By.id("edit-terminos-y-condiciones")).click();
     driver.findElement(By.id("edit-submit-button")).click();
-    String actText = driver.findElement(By.xpath("//main/div/div")).getText();
+    boolean a = driver.getPageSource().contains("Tus datos y tu CV han se han guardado correctamente.");
+    assertTrue(a);
     System.out.println("Taking Screen Shot");
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	FileUtils.copyFile(screenshot, new File("/home/aluna/Desktop/capturas/postulaciones/testingv2/capturas/altaconarchivoadjunto.png"));	
-	
+	FileUtils.copyFile(screenshot, new File("/home/aluna/Desktop/capturas/postulaciones/testingv2/capturas/altaconarchivoadjunto.png"));
   }
 
   @After

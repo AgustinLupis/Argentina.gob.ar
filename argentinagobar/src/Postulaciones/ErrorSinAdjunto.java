@@ -33,8 +33,8 @@ public class ErrorSinAdjunto {
   }
 
   @Test
-  public void testAltaSinAdjunto() throws Exception {
-	  /* maximizar navegador*/
+  public void ErrorSinAdjunto() throws Exception {
+	    /* maximizar navegador*/
 		driver.manage().window().maximize();
 		/* maximizar navegador*/
 	    driver.get(baseUrl + "postulaciones");
@@ -67,8 +67,10 @@ public class ErrorSinAdjunto {
 	    driver.findElement(By.xpath("//div[@id='edit-discapacidad']/label[2]")).click();
 	    driver.findElement(By.id("edit-comentario")).clear();
 	    driver.findElement(By.id("edit-comentario")).sendKeys("asd");
-    driver.findElement(By.id("edit-terminos-y-condiciones")).click();
-    driver.findElement(By.id("edit-submit-button")).click();
+	    driver.findElement(By.id("edit-terminos-y-condiciones")).click();
+	    driver.findElement(By.id("edit-submit-button")).click();
+	    boolean a = driver.getPageSource().contains("El campo Adjuntar archivo: es obligatorio.");
+	    assertTrue(a);
 //toma screenshot en formato png
     File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     try {
@@ -85,11 +87,11 @@ public class ErrorSinAdjunto {
 
   @After
   public void tearDown() throws Exception {
-    /*driver.quit();
+    driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
-    }*/
+    }
   }
 
   private boolean isElementPresent(By by) {

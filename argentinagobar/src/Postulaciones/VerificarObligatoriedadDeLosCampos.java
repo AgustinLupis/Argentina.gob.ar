@@ -41,26 +41,34 @@ public class VerificarObligatoriedadDeLosCampos {
 	driver.manage().window().maximize();
 	/* maximizar navegador*/
     driver.get(baseUrl + "postulaciones");
-    	driver.findElement(By.id("edit-otro-estudio")).click();
-        //driver.findElement(By.id("edit-submit-button")).click();
-
-
-        
-        
-        //String actText = driver.findElement(By.xpath("//main/div/div")).getText();
+    driver.findElement(By.id("edit-submit-button")).click();
+    boolean a = driver.getPageSource().contains("El campo Nombres es obligatorio.");
+    assertTrue(a);
+    boolean b = driver.getPageSource().contains("El campo Apellido es obligatorio.");
+    assertTrue(b);
+    boolean c = driver.getPageSource().contains("El campo Teléfono es obligatorio.");
+    assertTrue(c);
+    boolean d = driver.getPageSource().contains("El campo DNI es obligatorio.");
+    assertTrue(d);
+    boolean e = driver.getPageSource().contains("El campo Correo Electrónico es obligatorio.");
+    assertTrue(e);
+    boolean f = driver.getPageSource().contains("El campo Adjuntar archivo: es obligatorio.");
+    assertTrue(f);
+    boolean g = driver.getPageSource().contains("El campo He leído");
+    assertTrue(g);
     System.out.println("Taking Screen Shot");
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	FileUtils.copyFile(screenshot, new File("/home/aluna/Desktop/capturas/postulaciones/testingv2/capturas/VerificarObligatoriedadDeLosCampos.png"));	
+	FileUtils.copyFile(screenshot, new File("/home/aluna/Desktop/capturas/postulaciones/testingv2/capturas/VerificarObligatoriedadDeLosCampos.png"));    
 	
   }
 
   @After
   public void tearDown() throws Exception {
-    /*driver.quit();
+    driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
-    }*/
+    }
   }
 
   private boolean isElementPresent(By by) {
