@@ -39,24 +39,7 @@ public class verificarCompletitudDePantalla {
 		driver.manage().window().maximize();
 		/* maximizar navegador*/
     driver.get(baseUrl + "postulaciones");
-    String actText = driver.findElement(By.id("edit-nombres")).getText();
-    String actText1 = driver.findElement(By.id("edit-apellido")).getText();
-    String actText2 = driver.findElement(By.id("edit-telefono")).getText();
-    String actText3 = driver.findElement(By.id("edit-dni")).getText();
-    String actText4 = driver.findElement(By.id("edit-mail")).getText();
-    String actText5 = driver.findElement(By.id("edit-nombres")).getText();
-    String actText6 = driver.findElement(By.id("edit-nombres")).getText();
-    String actText7 = driver.findElement(By.id("edit-localidad")).getText();
-    String actText8 = driver.findElement(By.id("edit-nivel-de-estudio")).getText();
-    String actText9 = driver.findElement(By.id("edit-estado-cursada")).getText();
-    String actText10 = driver.findElement(By.id("edit-titulo-obtenido")).getText();
-    String actText11 = driver.findElement(By.id("edit-aos-de-experiencia-laboral-en-apn")).getText();
-    String actText12 = driver.findElement(By.id("edit-en-donde")).getText();
-    String actText13 = driver.findElement(By.id("edit-nombre-organizacion")).getText();
-    String actText14 = driver.findElement(By.id("edit-jerarquia")).getText();
-    String actText15 = driver.findElement(By.id("edit-comentario")).getText();
-    String actText16 = driver.findElement(By.id("edit-terminos-y-condiciones")).getText();
-    String actText17 = driver.findElement(By.id("edit-submit-button")).getText();
+    
     System.out.println("Taking Screen Shot");
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	FileUtils.copyFile(screenshot, new File("/home/aluna/Desktop/capturas/postulaciones/testingv2/capturas/verificarCompletitudDePantalla.png"));	
