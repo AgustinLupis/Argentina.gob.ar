@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.Select;
 
 
 
-public class DNITelefonoLetras {
+public class AgregarEstudio2 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -46,9 +46,9 @@ public class DNITelefonoLetras {
     driver.findElement(By.id("edit-apellido")).clear();
     driver.findElement(By.id("edit-apellido")).sendKeys("lopez");
     driver.findElement(By.id("edit-telefono")).clear();
-    driver.findElement(By.id("edit-telefono")).sendKeys("letras");
+    driver.findElement(By.id("edit-telefono")).sendKeys("43211212");
     driver.findElement(By.id("edit-dni")).clear();
-    driver.findElement(By.id("edit-dni")).sendKeys("letras");
+    driver.findElement(By.id("edit-dni")).sendKeys("23111222");
     driver.findElement(By.id("edit-mail")).clear();
     driver.findElement(By.id("edit-mail")).sendKeys("asd@asd.com");
     driver.findElement(By.xpath("//div[@id='edit-pais-residencia']/label")).click();
@@ -61,6 +61,12 @@ public class DNITelefonoLetras {
     new Select(driver.findElement(By.id("edit-nivel-de-estudio"))).selectByVisibleText("Secundaria Completo");
     driver.findElement(By.id("edit-titulo-obtenido")).clear();
     driver.findElement(By.id("edit-titulo-obtenido")).sendKeys("titulo completo");
+    driver.findElement(By.id("edit-otro-estudio")).click();
+    new Select(driver.findElement(By.id("edit-nivel-de-estudio2"))).selectByVisibleText("Universitario Completo");
+    driver.findElement(By.id("edit-titulo-obtenido2")).clear();
+    driver.findElement(By.id("edit-titulo-obtenido2")).sendKeys("Abogado");
+    new Select(driver.findElement(By.id("edit-area-de-estudio2"))).selectByVisibleText("Astronomía");
+    driver.findElement(By.cssSelector("#edit-area-de-estudio2 > option[value=\"astronomia\"]")).click();
     new Select(driver.findElement(By.id("edit-aos-de-experiencia-laboral-en-apn"))).selectByVisibleText("0 - 3 Años");
     driver.findElement(By.xpath("//div[@id='edit-trabajo-en-sector-publico']/label")).click();
     driver.findElement(By.xpath("//div[@id='edit-trabajo-en-sector-publico']/label[2]")).click();
@@ -75,16 +81,16 @@ public class DNITelefonoLetras {
     driver.findElement(By.name("files[cv]")).sendKeys(file.getAbsolutePath());
     driver.findElement(By.id("edit-terminos-y-condiciones")).click();
     driver.findElement(By.id("edit-submit-button")).click();
-    boolean a = driver.getPageSource().contains("sólo admite números.");
+    boolean a = driver.getPageSource().contains("Tus datos y tu CV han se han guardado correctamente.");
     assertTrue(a);
     System.out.println("Taking Screen Shot");
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	FileUtils.copyFile(screenshot, new File("//home/nicolas/Capturas/Postulaciones/DNItelefonoletras.png"));
+	FileUtils.copyFile(screenshot, new File("//home/nicolas/Capturas/Postulaciones/altaconarchivoadjunto.png"));
   }
 
   @After
   public void tearDown() throws Exception {
-    //driver.quit();
+   // driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
