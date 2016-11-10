@@ -33,7 +33,7 @@ public class VerificarValidacionesDeLosCampos {
 	//driver = new FirefoxDriver();
     baseUrl = "http://qa-back.argentina.gob.ar/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
+  } 
 
   @Test
   public void testAltaSinAdjunto() throws Exception {

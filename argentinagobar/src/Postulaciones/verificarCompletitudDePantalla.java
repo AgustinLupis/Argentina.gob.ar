@@ -44,7 +44,7 @@ public class verificarCompletitudDePantalla {
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	FileUtils.copyFile(screenshot, new File("/home/aluna/Desktop/capturas/postulaciones/testingv2/capturas/verificarCompletitudDePantalla.png"));	
 
-    
+     	
   }  
     
   @After

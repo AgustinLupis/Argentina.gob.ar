@@ -70,7 +70,7 @@ public class ErrorSinAdjunto {
 	    driver.findElement(By.id("edit-terminos-y-condiciones")).click();
 	    driver.findElement(By.id("edit-submit-button")).click();
 	    boolean a = driver.getPageSource().contains("El campo Adjuntar archivo: es obligatorio.");
-	    assertTrue(a);
+	    assertTrue(a); 
 //toma screenshot en formato png
     File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     try {
