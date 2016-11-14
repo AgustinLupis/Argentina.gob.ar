@@ -63,6 +63,27 @@ public class verificarCompletitudDePantalla {
     assertTrue(l);
     boolean m = driver.getPageSource().contains("nivel_de_estudio");
     assertTrue(m);
+    boolean n = driver.getPageSource().contains("titulo_obtenido");
+    assertTrue(n);
+    boolean o = driver.getPageSource().contains("años_de_experiencia_laboral_en_apn");
+    assertTrue(o);
+    boolean p = driver.getPageSource().contains("trabajo_en_sector_publico");
+    assertTrue(p);
+    boolean q = driver.getPageSource().contains("trabaja_actualmente");
+    assertTrue(q);
+    boolean r = driver.getPageSource().contains("provincia_donde_trabajar");
+    assertTrue(r);
+    boolean s = driver.getPageSource().contains("discapacidad");
+    assertTrue(s);
+    boolean t = driver.getPageSource().contains("files[cv]");
+    assertTrue(t);
+    boolean u = driver.getPageSource().contains("comentario");
+    assertTrue(u);
+    boolean v = driver.getPageSource().contains("terminos_y_condiciones");
+    assertTrue(v);
+    boolean w = driver.getPageSource().contains("op");
+    assertTrue(w);
+    
         
     
     System.out.println("Taking Screen Shot");
