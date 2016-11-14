@@ -39,6 +39,31 @@ public class verificarCompletitudDePantalla {
 		driver.manage().window().maximize();
 		/* maximizar navegador*/
     driver.get(baseUrl + "postulaciones");
+    boolean a = driver.getPageSource().contains("Datos Personales");
+    assertTrue(a);
+    boolean b = driver.getPageSource().contains("nombres");
+    assertTrue(b);
+    boolean c = driver.getPageSource().contains("apellido");
+    assertTrue(c);
+    boolean d = driver.getPageSource().contains("telefono");
+    assertTrue(d);
+    boolean f = driver.getPageSource().contains("dni");
+    assertTrue(f);  
+    boolean g = driver.getPageSource().contains("mail");
+    assertTrue(g);
+    boolean h = driver.getPageSource().contains("pais_residencia");
+    assertTrue(h);
+    boolean i = driver.getPageSource().contains("fecha_nacimiento[month]");
+    assertTrue(i);
+    boolean j = driver.getPageSource().contains("fecha_nacimiento[day]");
+    assertTrue(j);
+    boolean k = driver.getPageSource().contains("fecha_nacimiento[year]");
+    assertTrue(k);
+    boolean l = driver.getPageSource().contains("genero");
+    assertTrue(l);
+    boolean m = driver.getPageSource().contains("nivel_de_estudio");
+    assertTrue(m);
+        
     
     System.out.println("Taking Screen Shot");
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
