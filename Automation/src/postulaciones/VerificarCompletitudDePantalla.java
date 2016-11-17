@@ -39,29 +39,49 @@ public class VerificarCompletitudDePantalla {
 		driver.manage().window().maximize();
 		/* maximizar navegador*/
     driver.get(baseUrl + "postulaciones");
-    String actText = driver.findElement(By.id("edit-nombres")).getText();
-    String actText1 = driver.findElement(By.id("edit-apellido")).getText();
-    String actText2 = driver.findElement(By.id("edit-telefono")).getText();
-    String actText3 = driver.findElement(By.id("edit-dni")).getText();
-    String actText4 = driver.findElement(By.id("edit-mail")).getText();
-    String actText5 = driver.findElement(By.id("edit-nombres")).getText();
-    String actText6 = driver.findElement(By.id("edit-nombres")).getText();
-    String actText7 = driver.findElement(By.id("edit-localidad")).getText();
-    String actText8 = driver.findElement(By.id("edit-nivel-de-estudio")).getText();
-    String actText9 = driver.findElement(By.id("edit-estado-cursada")).getText();
-    String actText10 = driver.findElement(By.id("edit-titulo-obtenido")).getText();
-    String actText11 = driver.findElement(By.id("edit-aos-de-experiencia-laboral-en-apn")).getText();
-    String actText12 = driver.findElement(By.id("edit-en-donde")).getText();
-    String actText13 = driver.findElement(By.id("edit-nombre-organizacion")).getText();
-    String actText14 = driver.findElement(By.id("edit-jerarquia")).getText();
-    String actText15 = driver.findElement(By.id("edit-comentario")).getText();
-    String actText16 = driver.findElement(By.id("edit-terminos-y-condiciones")).getText();
-    String actText17 = driver.findElement(By.id("edit-submit-button")).getText();
+    boolean a = driver.getPageSource().contains("Datos Personales");
+    assertTrue(a);
+    boolean b = driver.getPageSource().contains("nombres");
+    assertTrue(b);
+    boolean c = driver.getPageSource().contains("apellido");
+    assertTrue(c);
+    boolean d = driver.getPageSource().contains("telefono");
+    assertTrue(d);
+    boolean f = driver.getPageSource().contains("dni");
+    assertTrue(f);  
+    boolean g = driver.getPageSource().contains("mail");
+    assertTrue(g);
+    boolean h = driver.getPageSource().contains("pais_residencia");
+    assertTrue(h);
+    boolean i = driver.getPageSource().contains("fecha_nacimiento[month]");
+    assertTrue(i);
+    boolean j = driver.getPageSource().contains("fecha_nacimiento[day]");
+    assertTrue(j);
+    boolean k = driver.getPageSource().contains("fecha_nacimiento[year]");
+    assertTrue(k);
+    boolean l = driver.getPageSource().contains("genero");
+    assertTrue(l);
+    boolean m = driver.getPageSource().contains("nivel_de_estudio");
+    assertTrue(m);
+    boolean n = driver.getPageSource().contains("titulo_obtenido");
+    assertTrue(n);
+    driver.findElement(By.id("edit-otro-estudio")).click();
+    boolean o = driver.getPageSource().contains("nivel_de_estudio2");
+    assertTrue (o);
+    boolean p = driver.getPageSource().contains("titulo_obtenido2");
+    assertTrue (p);
+    boolean q = driver.getPageSource().contains("area_de_estudio2");
+    assertTrue (q);
+    boolean r = driver.getPageSource().contains("años_de_experiencia_laboral_en_apn");
+    assertTrue (r);
+    
+        
+    
     System.out.println("Taking Screen Shot");
 	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	FileUtils.copyFile(screenshot, new File("/home/nicolas/Capturas/Postulaciones/VerificarCompletitudDePantalla.png"));	
+	FileUtils.copyFile(screenshot, new File("//home/nicolas/Capturas/Postulaciones/verificarCompletitudDePantalla.png"));	
 
-    
+     	
   }  
     
   @After
